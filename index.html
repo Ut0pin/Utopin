@@ -1,14 +1,8 @@
-
-To make the navigation bar white with an underline and change the font for "Utopin" to something more sophisticated, you can modify the CSS as follows:
-
-html
-Copy code
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utopin - Your Website Title</title>
     <style>
         body {
             margin: 0;
@@ -19,7 +13,7 @@ Copy code
         .navbar {
             background-color: #fff; /* White background */
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0; /* Increased padding to move it lower */
         }
 
         .navbar a {
@@ -32,7 +26,7 @@ Copy code
         }
 
         .navbar a:hover {
-            border-bottom: 2px solid #3498db; /* Thicker underline on hover */
+            border-bottom: 1px solid #3498db; /* Thicker underline on hover */
         }
 
         .container {
@@ -42,22 +36,12 @@ Copy code
         }
 
         .ball {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             background-color: #3498db;
             border-radius: 50%;
             position: absolute;
             transition: transform 0.4s ease;
-        }
-
-        .text {
-            font-size: 24px;
-            font-weight: normal;
-            font-family: 'Arial', sans-serif; /* Replace with your chosen font */
-            position: absolute;
-            top: 90%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
 
         .line {
@@ -74,24 +58,24 @@ Copy code
         }
     </style>
 </head>
-<body>
-    <div class="navbar">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-    </div>
 
+<body>
     <div class="container">
+        <div class="text">Utopin</div>
+        <div class="navbar">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+        </div>
         <div class="ball" id="ball1"></div>
         <div class="ball" id="ball2"></div>
-        <div class "ball" id="ball3"></div>
+        <div class="ball" id="ball3"></div>
         <div class="ball" id="ball4"></div>
         <div class="ball" id="ball5"></div>
-        <div class="text">Utopin</div>
-        <div class="text" id="tagline">a dreamer on a planet earth</div>
         <div class="line" id="line1"></div>
         <div class="line" id="line2"></div>
         <div class="line" id="line3"></div>
         <div class="line" id="line4"></div>
+        <!-- Put your image here -->
         <img src="C:\Users\antti\OneDrive\0 Projektit\302 Archive\2 Utopin\201 Valmiit\A Grafiikkaa\Logo_02.png" alt="Image Placeholder" class="image-placeholder">
     </div>
 
