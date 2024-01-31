@@ -33,12 +33,6 @@
             text-align: center;
         }
 
-          section img {
-            max-width: 100%;
-            height: 200px; /* Set a fixed height for the images */
-            object-fit: cover; /* Maintain aspect ratio while covering the container */
-        }
-
         section img {
             max-width: 100%;
             height: auto;
@@ -53,7 +47,63 @@
         li {
             margin-bottom: 8; /* Add some spacing between list items */
         }
+
+        em {
+            font-style: italic;
+        }
+
+        #magnifier {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background-size: 200% 200%;
+            background-image: radial-gradient(circle at center, transparent 50%, black 52%);
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(1);
+            transition: transform 0.1s ease-out;
+        }
+
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .magnify {
+            transform-origin: 0 0;
+        }
+
     </style>
+    <title>Magnifying Glass</title>
+</head>
+<body>
+    <div id="magnifier"></div>
+    <div id="content" class="magnify">
+        <!-- Your content goes here -->
+        <img src="your_image.jpg" alt="Magnify me">
+    </div>
+
+    <script>
+        const magnifier = document.getElementById('magnifier');
+        const content = document.getElementById('content');
+
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            magnifier.style.left = mouseX + 'px';
+            magnifier.style.top = mouseY + 'px';
+
+            const contentRect = content.getBoundingClientRect();
+            const scaleX = content.clientWidth / contentRect.width;
+            const scaleY = content.clientHeight / contentRect.height;
+
+            magnifier.style.transform = `translate(-50%, -50%) scale(${scaleX}, ${scaleY})`;
+        });
+    </script>
+    </style>
+
     <title>Simple Webpage</title>
 </head>
 <body>
@@ -63,7 +113,7 @@
 
     <main>
         <section>
-            <img src="321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
             <p>Field of work</p>
                 <!-- Add your list items here -->
             <ul>
@@ -78,7 +128,7 @@
         </section>
 
         <section>
-            <img src="20200816-P8161791.jpg" alt="Image 2">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\20200816-P8161791.jpg" alt="Image 2">
             <p>Education and volunteering</p>
             <ul>
                 <li><strong>Education:</strong> University of Oulu - faculty of architecture. </li>
@@ -124,7 +174,7 @@
                 <li><strong>2013-2015:</strong> Tele Finland - Face to face sales representative</li>
                 <li><strong>2012:</strong> Pro Voice Finland - Sales representative</li>
                 <li><strong>2011:</strong> Live promoter - Sales representative</li>
-                <li><strong>2010:</strong> Alepa - Grocery store first summer job</li>
+                <li><strong>2010:</strong> Alepa - <em>Grocery store first summer job</em></li>
             </ul>
         </section>
 
