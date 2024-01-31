@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            
         }
 
         header {
@@ -52,57 +54,33 @@
             font-style: italic;
         }
 
-        #magnifier {
+        #circle {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
             border: 2px solid black;
             border-radius: 50%;
-            background-size: 200% 200%;
-            background-image: radial-gradient(circle at center, transparent 50%, black 52%);
             pointer-events: none;
-            transform: translate(-50%, -50%) scale(1);
-            transition: transform 0.1s ease-out;
         }
-
-        #content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .magnify {
-            transform-origin: 0 0;
-        }
-
     </style>
-    <title>Magnifying Glass</title>
+
+<title>Follow Mouse Circle</title>
 </head>
 <body>
-    <div id="magnifier"></div>
-    <div id="content" class="magnify">
-        <!-- Your content goes here -->
-        <img src="your_image.jpg" alt="Magnify me">
-    </div>
+    <div id="circle"></div>
 
     <script>
-        const magnifier = document.getElementById('magnifier');
-        const content = document.getElementById('content');
-
         document.addEventListener('mousemove', (e) => {
+            const circle = document.getElementById('circle');
             const mouseX = e.clientX;
             const mouseY = e.clientY;
 
-            magnifier.style.left = mouseX + 'px';
-            magnifier.style.top = mouseY + 'px';
-
-            const contentRect = content.getBoundingClientRect();
-            const scaleX = content.clientWidth / contentRect.width;
-            const scaleY = content.clientHeight / contentRect.height;
-
-            magnifier.style.transform = `translate(-50%, -50%) scale(${scaleX}, ${scaleY})`;
+            // Set the circle's position to the mouse coordinates
+            circle.style.left = mouseX - circle.clientWidth / 2 + 'px';
+            circle.style.top = mouseY - circle.clientHeight / 2 + 'px';
         });
     </script>
-    </style>
+
 
     <title>Simple Webpage</title>
 </head>
@@ -113,7 +91,7 @@
 
     <main>
         <section>
-            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
+            <img src="321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
             <p>Field of work</p>
                 <!-- Add your list items here -->
             <ul>
@@ -128,7 +106,7 @@
         </section>
 
         <section>
-            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\20200816-P8161791.jpg" alt="Image 2">
+            <img src="20200816-P8161791.jpg" alt="Image 2">
             <p>Education and volunteering</p>
             <ul>
                 <li><strong>Education:</strong> University of Oulu - faculty of architecture. </li>
@@ -145,35 +123,35 @@
             <p>All past experiences as a list</p>
             <ul>
                 <!-- Add your list items here -->
-                <li><strong>2022-2023:</strong> Municipality of Urjala, Urban designer</li>
-                <li><strong>2022:</strong> EASA, INCM - Organiser, International contact meeting</li>
-                <li><strong>2022:</strong> EASA - NC of Finland</li>
-                <li><strong>2022:</strong> Vector ry, Deco team - responsible person</li>
-                <li><strong>2022:</strong> EASA 1:1, Romania, Soundscapes - participant</li>
-                <li><strong>2021-2022:</strong> Metaspace - Co-founder & environment artist</li>
-                <li><strong>2020-2021:</strong> University of Oulu, faculty of technology - member of the education committee</li>
-                <li><strong>2019-2021:</strong> SAFA - member of the communications working group</li>
-                <li><strong>2021:</strong> Student SAFA - Organiser of the Finnish Architecture student magazine</li>
-                <li><strong>2021:</strong> EASA, Isosaari Reality - Organizer</li>
-                <li><strong>2021:</strong> Student SAFA - "Old helping hand"</li>
-                <li><strong>2021:</strong> SAFA - member of professional section</li>
-                <li><strong>2021:</strong> Vector ry - Deco team</li>
-                <li><strong>2020:</strong> Tuusula city - Alternative development ideas for Rajatie area</li>
-                <li><strong>2020:</strong> EASA, Apathy, Valga - Sauna guide for hitchhikers, tutor</li>
-                <li><strong>2020:</strong> Vector ry - Deco team</li>
-                <li><strong>2020:</strong> SAFA - research and education committee</li>
-                <li><strong>2019:</strong> Student SAFA - Chairperson of the board</li>
-                <li><strong>2019:</strong> Exhibition @ Helsinki design week ft. Eko-SAFA - "Unelma paremmasta maailmasta"</li>
-                <li><strong>2019:</strong> Denmark excursion for Finnish architecture students - Organiser ft. Oona</li>
-                <li><strong>2019:</strong> Arkkigraf - Architectural assistant</li>
-                <li><strong>2018:</strong> Oulu guild of architecture - Board treasurer</li>
-                <li><strong>2018:</strong> Student SAFA - Board member and communications</li>
-                <li><strong>2018:</strong> EASA, Switzerland, workshop Building barbegazi - Participant</li>
-                <li><strong>2017:</strong> Telia Company - Salesperson</li>
-                <li><strong>2017:</strong> Military - Second lieutenant</li>
-                <li><strong>2013-2015:</strong> Tele Finland - Face to face sales representative</li>
-                <li><strong>2012:</strong> Pro Voice Finland - Sales representative</li>
-                <li><strong>2011:</strong> Live promoter - Sales representative</li>
+                <li><strong>2022-2023:</strong> Municipality of Urjala, <em>Urban designer</em></li>
+                <li><strong>2022:</strong> EASA, INCM International contact meeting - <em>Organiser</em></li>
+                <li><strong>2022:</strong> EASA - <em>NC of Finland</em></li>
+                <li><strong>2022:</strong> Vector ry, Deco team - <em>responsible person</em></li>
+                <li><strong>2022:</strong> EASA 1:1, Romania, Soundscapes - <em>participant</em></li>
+                <li><strong>2021-2022:</strong> Metaspace - <em>Co-founder & environment artist</em></li>
+                <li><strong>2020-2021:</strong> University of Oulu, faculty of technology - <em>member of the education committee</em></li>
+                <li><strong>2019-2021:</strong> SAFA - <em>member of the communications working group</em></li>
+                <li><strong>2021:</strong> Student SAFA - <em>Organiser of the Finnish Architecture student magazine</em></li>
+                <li><strong>2021:</strong> EASA, Isosaari Reality - <em>Organizer</em></li>
+                <li><strong>2021:</strong> Student SAFA - <em>"Old helping hand"</em></li>
+                <li><strong>2021:</strong> SAFA - <em>member of professional section</em></li>
+                <li><strong>2021:</strong> Vector ry - <em>Deco team</em></li>
+                <li><strong>2020:</strong> Tuusula city - <em>Alternative development ideas for Rajatie area</em></li>
+                <li><strong>2020:</strong> EASA, Apathy, Valga - <em>Sauna guide for hitchhikers, tutor</em></li>
+                <li><strong>2020:</strong> Vector ry - <em>Deco team</em></li>
+                <li><strong>2020:</strong> SAFA - <em>research and education committee</em></li>
+                <li><strong>2019:</strong> Student SAFA - <em>Chairperson of the board</em></li>
+                <li><strong>2019:</strong> Exhibition @ Helsinki design week ft. Eko-SAFA - <em>"Unelma paremmasta maailmasta"</em></li>
+                <li><strong>2019:</strong> Denmark excursion for Finnish architecture students - <em>Organiser ft. Oona</em></li>
+                <li><strong>2019:</strong> Arkkigraf - <em>Architectural assistant</em></li>
+                <li><strong>2018:</strong> Oulu guild of architecture - <em>Board treasurer</em></li>
+                <li><strong>2018:</strong> Student SAFA - <em>Board member and communications</em></li>
+                <li><strong>2018:</strong> EASA, Switzerland, workshop Building barbegazi - <em>Participant</em></li>
+                <li><strong>2017:</strong> Telia Company - <em>Salesperson</em></li>
+                <li><strong>2017:</strong> Military - <em>Second lieutenant</em></li>
+                <li><strong>2013-2015:</strong> Tele Finland - Face to face sales representative</em></li>
+                <li><strong>2012:</strong> Pro Voice Finland - Sales representative</em></li>
+                <li><strong>2011:</strong> Live promoter - <em>Sales representative</em></li>
                 <li><strong>2010:</strong> Alepa - <em>Grocery store first summer job</em></li>
             </ul>
         </section>
