@@ -75,7 +75,22 @@
             top: 50%;
             transform: translate(-50%, -50%);
         }
-        
+
+        /* Add this media query to apply styles only when the screen width is 600 pixels or less (adjust as needed) */
+        @media screen and (max-width: 600px) {
+        main {
+            flex-direction: column; /* Stack sections vertically on small screens */
+            align-items: center; /* Center sections horizontally on small screens */
+        }
+    
+        section {
+            width: 100%; /* Make sections take full width on small screens */
+        }
+    
+        header img {
+            width: 100%; /* Make the header image take full width on small screens */
+        }
+        }   
     </style>
 
 
