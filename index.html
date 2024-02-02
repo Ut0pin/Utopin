@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        li {
+            margin-bottom: 8px; /* Add some spacing between list items */
+        }
 
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            
         }
 
         header {
@@ -36,14 +38,21 @@
         }
 
         section img {
-            max-width: 100%;
-            height: auto;
+            max-width:100%;
+            max-height: 450px; /* Adjust the height as needed */
+            object-fit: cover;
+        }
+        
+        /* Add this to center the text in each section */
+        section p, section ul {
+            margin-top: 10px;
         }
 
         ul {
             list-style: none; /* Remove bullets from unordered lists */
             padding: 0; /* Remove default padding */
             text-align: left; /* Align the text to the left */
+            margin-top: 10px;
         }
 
         li {
@@ -62,51 +71,52 @@
             border-radius: 50%;
             pointer-events: none;
         }
+        
     </style>
 
-<title>Follow Mouse Circle</title>
+    <title>Follow Mouse Circle</title>
 </head>
 <body>
     <div id="circle"></div>
 
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            const circle = document.getElementById('circle');
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-
-            // Set the circle's position to the mouse coordinates
-            circle.style.left = mouseX - circle.clientWidth / 2 + 'px';
-            circle.style.top = mouseY - circle.clientHeight / 2 + 'px';
-        });
-    </script>
-
-
-    <title>Simple Webpage</title>
-</head>
-<body>
     <header>
         <img src="UtopinLogo.png" alt="Image 1">
     </header>
 
     <main>
         <section>
-            <img src="321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
             <p>Field of work</p>
                 <!-- Add your list items here -->
             <ul>
-                <li>Finding the unknown</li>
-                <li>Experimental processes</li>
                 <li>Concept Development</li>
+                <li>Workflow Development</li>
+                <li>Finding the unknown through an experimental processes.</li>
                 <li>Urban and rural Developement</li>
-                <li>Identity of a location Research and design</li>
+                <li>Identity of a location research and design</li>
                 <li>Spatial Installations and architecture</li>
-                <li>Finding the unknown through an experimental process.</li>
+            </ul>
+
+            <p>Tools and skills</p>
+                <!-- Add your list items here -->
+            <ul>
+                <li>In the process of creating something, I prefer to use vide range of physical and digital tools. Here some digital listed.</li>
+                <li><strong>Coding:</strong> html, css, JavaScrip - <em>beginner</em></li>
+                <li><strong>2D:</strong>Adobe, photoshop, illustrator and indesign - <em>experienced/professional</em></li>
+                <li><strong>2D:</strong>Affinity, designer, photo, pulisher - <em>experienced/professional</em></li>
+                <li><strong>2D:</strong>Krita, Gimp, Photoref - <em>advanced</em></li>
+                <li><strong>3D:</strong>Blender - <em>experienced/professional</em></li>
+                <li><strong>3D:</strong>Rhinocreos - <em>experienced/professional</em></li>
+                <li><strong>Game engine</strong>Unreal engine - <em>advanced beginner</em></li>
+                <li><strong>Parametric 3D:</strong>Grasshopper - <em>advanced</em></li>
+                <li><strong>Video:</strong>Touchdesigner - <em>beginner</em></li>
+                <li><strong>BIM</strong>Revit - <em>advanced</em></li>
+                <li><strong>BIM</strong>Archicad - <em>beginner</em></li>
             </ul>
         </section>
 
         <section>
-            <img src="20200816-P8161791.jpg" alt="Image 2">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\20200816-P8161791.jpg" alt="Image 2">
             <p>Education and volunteering</p>
             <ul>
                 <li><strong>Education:</strong> University of Oulu - faculty of architecture. </li>
@@ -114,17 +124,18 @@
                 <li><strong>Volunteering:</strong> EASA, participant, workshop tutor and organiser</li>
                 <li><strong>Volunteering:</strong> Vectorama ry, Decoration team member, moderator and organiser</li>
                 <li><strong>Volunteering:</strong> O-SAFA, different roles as a member and head of the board</li>
+                <li><strong>Volunteering:</strong> Oulu guild of architecture, treasurer</li>
                 <li><strong>Volunteering:</strong> Scouts, Töölön siniset</li>
             </ul>
         </section>
 
         <section>
             <img src="02226-2209565767-organism, evolution, album cover.png" alt="Image 3">
-            <p>All past experiences as a list</p>
+            <p>Past experiences as a list</p>
             <ul>
                 <!-- Add your list items here -->
-                <li><strong>2022-2023:</strong> Municipality of Urjala, <em>Urban designer</em></li>
-                <li><strong>2022:</strong> EASA, INCM International contact meeting - <em>Organiser</em></li>
+                <li><strong>2022-2023:</strong> Municipality of Urjala - <em>Urban designer</em></li>
+                <li><strong>2022:</strong> EASA, Soft INCM - <em>Organiser</em></li>
                 <li><strong>2022:</strong> EASA - <em>NC of Finland</em></li>
                 <li><strong>2022:</strong> Vector ry, Deco team - <em>responsible person</em></li>
                 <li><strong>2022:</strong> EASA 1:1, Romania, Soundscapes - <em>participant</em></li>
@@ -139,24 +150,28 @@
                 <li><strong>2020:</strong> Tuusula city - <em>Alternative development ideas for Rajatie area</em></li>
                 <li><strong>2020:</strong> EASA, Apathy, Valga - <em>Sauna guide for hitchhikers, tutor</em></li>
                 <li><strong>2020:</strong> Vector ry - <em>Deco team</em></li>
-                <li><strong>2020:</strong> SAFA - <em>research and education committee</em></li>
+                <li><strong>2020:</strong> SAFA - <em>member of the research and education committee</em></li>
                 <li><strong>2019:</strong> Student SAFA - <em>Chairperson of the board</em></li>
-                <li><strong>2019:</strong> Exhibition @ Helsinki design week ft. Eko-SAFA - <em>"Unelma paremmasta maailmasta"</em></li>
+                <li><strong>2019:</strong> Exhibition: "Unelma paremmasta maailmasta" @ Helsinki design week - <em>Curator</em></li>
                 <li><strong>2019:</strong> Denmark excursion for Finnish architecture students - <em>Organiser ft. Oona</em></li>
                 <li><strong>2019:</strong> Arkkigraf - <em>Architectural assistant</em></li>
                 <li><strong>2018:</strong> Oulu guild of architecture - <em>Board treasurer</em></li>
-                <li><strong>2018:</strong> Student SAFA - <em>Board member and communications</em></li>
-                <li><strong>2018:</strong> EASA, Switzerland, workshop Building barbegazi - <em>Participant</em></li>
-                <li><strong>2017:</strong> Telia Company - <em>Salesperson</em></li>
-                <li><strong>2017:</strong> Military - <em>Second lieutenant</em></li>
-                <li><strong>2013-2015:</strong> Tele Finland - Face to face sales representative</em></li>
-                <li><strong>2012:</strong> Pro Voice Finland - Sales representative</em></li>
+                <li><strong>2018:</strong> Student SAFA - <em>Board member</em></li>
+                <li><strong>2018:</strong> EASA, Switzerland, Building barbegazi - <em>Workshop participant</em></li>
+                <li><strong>2017:</strong> Telia Company - <em>Sales representative</em></li>
+                <li><strong>2017:</strong> Military service- <em>Second lieutenant</em></li>
+                <li><strong>2013-2015:</strong> Tele Finland - <em>Sales representative</em></li>
+                <li><strong>2012:</strong> Pro Voice Finland - <em>Sales representative</em></li>
                 <li><strong>2011:</strong> Live promoter - <em>Sales representative</em></li>
-                <li><strong>2010:</strong> Alepa - <em>Grocery store first summer job</em></li>
+                <li><strong>2010:</strong> Alepa grocery store - <em>Summer trainee</em></li>
             </ul>
         </section>
-
-
     </main>
+
+    <!-- Collaboration Prompt -->
+    <div style="text-align: center; margin-top: 20px;">
+        <p>If interested in collaboration, feel free to message:<strong>utopin(at)yahoo.com <em>I will answer you in a week, month or year.</em></strong></p>
+    </div>
+
 </body>
 </html>
