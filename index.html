@@ -63,6 +63,7 @@
             font-style: italic;
         }
 
+
         #circle {
             position: absolute;
             width: 50px;
@@ -70,9 +71,13 @@
             border: 2px solid black;
             border-radius: 50%;
             pointer-events: none;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
         
     </style>
+
 
     <title>Follow Mouse Circle</title>
 </head>
@@ -98,6 +103,8 @@
                 <li>Workflow Development</li>
             </ul>
 
+
+
             <p>Tools and skills</p>
                 <!-- Add your list items here -->
             <ul>
@@ -119,6 +126,7 @@
             </ul>
         </section>
 
+
         <section>
             <img src="20200816-P8161791.jpg" alt="Image 2">
             <p>Education, volunteering and hobbies</p>
@@ -133,6 +141,7 @@
                 <li><strong>Hobby:</strong> Strategy games - <em>Cities Skylines, Stelaris, Civilisations, Rise of nations</em></li>
             </ul>
         </section>
+
 
         <section>
             <img src="02226-2209565767-organism, evolution, album cover.png" alt="Image 3">
@@ -173,10 +182,62 @@
         </section>
     </main>
 
+
+
     <!-- Collaboration Prompt -->
     <div style="text-align: center; margin-top: 20px;">
         <p>If interested in collaboration, feel free to message! <strong>utopin(at)yahoo.com</strong> <em>I will answer you in a week, month or year.</em></p>
     </div>
     
+
+    
+    <script>
+        // Get the circle element
+        const circle = document.getElementById('circle');
+    
+        // Variables to store the current position
+        let currentX = window.innerWidth / 2; // Initial X position
+        let currentY = window.innerHeight / 2; // Initial Y position
+    
+        // Easing function
+        function easeOutQuad(t, b, c, d) {
+            return -c * (t /= d) * (t - 2) + b;
+        }
+    
+        // Add an event listener to track mouse movement
+        document.addEventListener('mousemove', (event) => {
+            // Calculate the new position of the circle based on mouse coordinates and scroll position
+            const targetX = event.clientX + window.pageXOffset - circle.offsetWidth / 2;
+            const targetY = event.clientY + window.pageYOffset - circle.offsetHeight / 2;
+    
+            // Set the new position of the circle with easing
+            const startTime = Date.now();
+            const duration = 1000; // You can adjust the duration to control the overall speed
+    
+            function updatePosition() {
+                const currentTime = Date.now();
+                const elapsedTime = currentTime - startTime;
+    
+                if (elapsedTime < duration) {
+                    currentX = easeOutQuad(elapsedTime, currentX, targetX - currentX, duration);
+                    currentY = easeOutQuad(elapsedTime, currentY, targetY - currentY, duration);
+    
+                    circle.style.left = currentX + 'px';
+                    circle.style.top = currentY + 'px';
+    
+                    requestAnimationFrame(updatePosition);
+                } else {
+                    // Snap to the final position when the animation is complete
+                    circle.style.left = targetX + 'px';
+                    circle.style.top = targetY + 'px';
+                }
+            }
+    
+            updatePosition();
+        });
+    </script>
+    
+    
+
 </body>
 </html>
