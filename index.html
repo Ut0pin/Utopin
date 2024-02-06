@@ -39,7 +39,7 @@
 
         section img {
             max-width:100%;
-            max-height: 450px; /* Adjust the height as needed */
+            max-height: 600px; /* Adjust the height as needed */
             object-fit: cover;
         }
         
@@ -56,13 +56,12 @@
         }
 
         li {
-            margin-bottom: 8; /* Add some spacing between list items */
+            margin-bottom: 8px; /* Add some spacing between list items */
         }
 
         em {
             font-style: italic;
         }
-
 
         #circle {
             position: absolute;
@@ -90,17 +89,42 @@
         header img {
             width: 100%; /* Make the header image take full width on small screens */
         }
-        }   
+        }
+
+        /* Scroll button */
+        #scrollButton {
+            position: fixed;
+            bottom: 20px; /* Adjusted the position */
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0); /* Set background color to white */
+            color: #ffffff; /* Set text color to black */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid #000; /* Add border with black color */
+            border-radius: 0px; /* Add border radius for rounded corners */
+        }
+
+        #scrollButton.show {
+            display: flex;
+        }
+
     </style>
 
 
-    <title>Follow Mouse Circle</title>
+    <title>Utopin webpage</title>
 </head>
 <body>
     <div id="circle"></div>
 
     <header>
-        <img src="UtopinLogo.png" alt="Image 1">
+        <a href="projects.html">
+            <img src="UtopinLogo.png" alt="Utopin Logo">
+        </a>
     </header>
 
     <main>
@@ -109,19 +133,14 @@
             <p>Field of work</p>
                 <!-- Add your list items here -->
             <ul>
-                <li>Finding the unknown through an experimental processes.</li>
-                <li>Urban and rural Developement</li>
-                <li>Identity of a place research, design and strategies</li>
+                <li>Urban and rural developement - research, politics, strategies, utopias and realisation</li>
+                <li>Concept to reality thinking and doing</li>
                 <li>Spatial Installations and physical and digital architecture</li>
-                <li>Concept to reality development</li>
-                <li>curating and implementing an exhibition or event</li>
-                <li>Workflow Development</li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Curation, implementation and construction of exhibitions and events</li>
+                <li>Workflow Development / Experimental processecs</li>
+                <li>Multitechnical, subordinate and cross-border art, science and projects</li>
+                <li>General curiosity to explore the unknown</li>
             </ul>
-
 
 
             <p>Tools and skills</p>
@@ -159,6 +178,7 @@
                 <li><strong>Volunteering:</strong> Töölö Scouts - <em>team curator</em></li>
                 <li><strong>Hobby:</strong> Strategy games - <em>Cities Skylines, Stelaris, Civilisations, Rise of nations</em></li>
             </ul>
+
         </section>
 
 
@@ -202,49 +222,46 @@
         </section>
     </main>
 
-
-
     <!-- Collaboration Prompt -->
     <div style="text-align: center; margin-top: 20px;">
-        <p>If interested in collaboration, feel free to message! <strong>utopin(at)yahoo.com</strong> <em>I will answer you in a week, month or year.</em></p>
+        <p>If interested in collaboration, feel free to message! <span style="color: black;">utopin(at)yahoo.com</span> <em>I will answer you in a week, month or year.</em></p>
     </div>
-    
 
-    
+    <!-- Probably the ball following the mouse -->
     <script>
         // Get the circle element
         const circle = document.getElementById('circle');
-    
+
         // Variables to store the current position
         let currentX = window.innerWidth / 2; // Initial X position
         let currentY = window.innerHeight / 2; // Initial Y position
-    
+
         // Easing function
         function easeOutQuad(t, b, c, d) {
             return -c * (t /= d) * (t - 2) + b;
         }
-    
+
         // Add an event listener to track mouse movement
         document.addEventListener('mousemove', (event) => {
             // Calculate the new position of the circle based on mouse coordinates and scroll position
             const targetX = event.clientX + window.pageXOffset - circle.offsetWidth / 2;
             const targetY = event.clientY + window.pageYOffset - circle.offsetHeight / 2;
-    
+
             // Set the new position of the circle with easing
             const startTime = Date.now();
             const duration = 1000; // You can adjust the duration to control the overall speed
-    
+
             function updatePosition() {
                 const currentTime = Date.now();
                 const elapsedTime = currentTime - startTime;
-    
+
                 if (elapsedTime < duration) {
                     currentX = easeOutQuad(elapsedTime, currentX, targetX - currentX, duration);
                     currentY = easeOutQuad(elapsedTime, currentY, targetY - currentY, duration);
-    
+
                     circle.style.left = currentX + 'px';
                     circle.style.top = currentY + 'px';
-    
+
                     requestAnimationFrame(updatePosition);
                 } else {
                     // Snap to the final position when the animation is complete
@@ -252,12 +269,63 @@
                     circle.style.top = targetY + 'px';
                 }
             }
-    
+
             updatePosition();
         });
+
+
     </script>
-    
-    
+
+    <!-- Rectangle for scrolling to top -->
+    <div id="scrollButton" onclick="scrollToTop()">^</div>
+
+    <script>
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            var scrollButton = document.getElementById("scrollButton");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollButton.style.display = "block";
+            } else {
+                scrollButton.style.display = "none";
+            }
+        }
+
+        // Get the scroll button element
+            const scrollButton = document.getElementById('scrollButton');
+
+        // Function to make the button vibrate
+        function vibrateButton() {
+            scrollButton.style.transform = 'translate(-50%, -50%) rotate(4deg)';
+            setTimeout(() => {
+                scrollButton.style.transform = 'translate(-50%, -50%) rotate(-4deg)';
+                setTimeout(() => {
+                    scrollButton.style.transform = 'translate(-50%, -50%) rotate(4deg)';
+                    setTimeout(() => {
+                        scrollButton.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+                    }, 50);
+                }, 50);
+            }, 50);
+        }
+
+        // Add event listeners for mouse hover and mouse leave
+        scrollButton.addEventListener('mouseenter', vibrateButton);
+        scrollButton.addEventListener('mouseleave', () => {
+            scrollButton.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+        });
+
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            var scrollStep = -window.scrollY / (1000 / 15),
+                scrollInterval = setInterval(function () {
+                    if (window.scrollY != 0) {
+                        window.scrollBy(0, scrollStep);
+                    }
+                    else clearInterval(scrollInterval);
+                }, 15);
+        }
+
+</script>
 
 </body>
 </html>
