@@ -39,7 +39,7 @@
 
         section img {
             max-width:100%;
-            max-height: 600px; /* Adjust the height as needed */
+            max-height: 500px; /* Adjust the height as needed */
             object-fit: cover;
         }
         
@@ -296,11 +296,11 @@
 
         // Function to make the button vibrate
         function vibrateButton() {
-            scrollButton.style.transform = 'translate(-50%, -50%) rotate(4deg)';
+            scrollButton.style.transform = 'translate(-50%, -50%) rotate(5deg)';
             setTimeout(() => {
-                scrollButton.style.transform = 'translate(-50%, -50%) rotate(-4deg)';
+                scrollButton.style.transform = 'translate(-50%, -50%) rotate(-5deg)';
                 setTimeout(() => {
-                    scrollButton.style.transform = 'translate(-50%, -50%) rotate(4deg)';
+                    scrollButton.style.transform = 'translate(-50%, -50%) rotate(5deg)';
                     setTimeout(() => {
                         scrollButton.style.transform = 'translate(-50%, -50%) rotate(0deg)';
                     }, 50);
