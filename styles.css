@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: hsl(0, 0%, 100%);
+    position: relative; /* Added relative positioning */
+}
+
+header img {
+    width: 10%; /* Set the width to make it three times smaller */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+section img {
+    max-width: 100%;
+    max-height: 500px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+/* Add this to center the text in each section */
+section p, section ul {
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none; /* Remove bullets from unordered lists */
+    padding: 0; /* Remove default padding */
+    text-align: left; /* Align the text to the left */
+    margin-top: 10px;
+}
+
+li {
+    margin-bottom: 9px; /* Add some spacing between list items */
+}
+
+em {
+    font-style: italic;
+}
+
+#circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid black;
+    border-radius: 50%;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Add this media query to apply styles only when the screen width is 700 pixels or less (adjust as needed) */
+@media screen and (max-width: 700px) {
+    main {
+        flex-direction: column; /* Stack sections vertically on small screens */
+        align-items: center; /* Center sections horizontally on small screens */
+    }
+
+    section {
+        width: 100%; /* Make sections take full width on small screens */
+    }
+
+    header img {
+        width: 100%; /* Make the header image take full width on small screens */
+    }
+}
+
+/* Scroll button */
+#scrollButton {
+    position: fixed;
+    bottom: 40px; /* Adjusted the position */
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0); /* Set background color to white */
+    color: #ffffff; /* Set text color to black */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #000; /* Add border with black color */
+    border-radius: 0px; /* Add border radius for rounded corners */
+}
+
+#scrollButton.show {
+    display: flex;
+}
+
+.header-white-box {
+    height: 200px; /* Adjust the height as needed */
+    background-color: #fff; /* Set the background color to white */
+}

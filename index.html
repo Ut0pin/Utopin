@@ -14,10 +14,13 @@
             text-align: center;
             padding: 20px;
             background-color: hsl(0, 0%, 100%);
+            position: relative; /* Added relative positioning */
         }
 
         header img {
-        width: 33.33%; /* Set the width to make it three times smaller */
+            width: 10%; /* Set the width to make it three times smaller */
+            display: block;
+            margin: 0 auto; /* Center the image */
         }
 
         main {
@@ -63,7 +66,7 @@
             position: absolute;
             width: 50px;
             height: 50px;
-            border: 4px solid black;
+            border: 3px solid black;
             border-radius: 50%;
             pointer-events: none;
             left: 50%;
@@ -109,6 +112,12 @@
             display: flex;
         }
 
+        .header-white-box {
+            height: 200px; /* Adjust the height as needed */
+            background-color: #fff; /* Set the background color to white */
+        }
+
+
     </style>
 
 
@@ -119,13 +128,14 @@
 
     <header>
         <a href="projects.html">
-            <img src="UtopinLogo.png" alt="Utopin Logo">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\Images\Logo_02.png" alt="Utopin Logo">
+            <div class="header-white-box"></div>
         </a>
     </header>
 
     <main>
         <section>
-            <img src="321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\Images\321558679_5647121608712989_974533000455030164_n.jpg" alt="Image 1">
             <p>Field of work</p>
                 <!-- Add your list items here -->
             <ul>
@@ -162,7 +172,7 @@
 
 
         <section>
-            <img src="20200816-P8161791.jpg" alt="Image 2">
+            <img src="Images/20200816-P8161791.jpg" alt="Image 2">
             <p>Education, volunteering and hobbies</p>
             <ul>
                 <li><strong>Education:</strong> University of Oulu - faculty of architecture. </li>
@@ -179,7 +189,7 @@
 
 
         <section>
-            <img src="02226-2209565767-organism, evolution, album cover.png" alt="Image 3">
+            <img src="C:\Users\antti\OneDrive\6 Arkisto\Documents\GitHub\Utopin\Images\organism, evolution, album cover.png" alt="Image 3">
             <p>Past experiences as a list</p>
             <ul>
                 <!-- Add your list items here -->
