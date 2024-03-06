@@ -23,10 +23,12 @@
             height: 100px; /* Adjust the height as needed */
             background-color: #fff; /* Set the background color to white */
         }
+
+
     </style>
 </head>
 <body>
-    <header>
+   // <header>
         <a href="index.html">
             <img src="Images\Logo_02.png" alt="Utopin Logo">
         </a>
@@ -34,7 +36,7 @@
     <div class="section-white-box"></div>
     <main>
         <div class="project-container">
-            <img src="Images\202111_soft_01.jpg" alt="Project 1" style="width: 600px; height: 600px;">
+            <canvas id="model-viewer"></canvas>
             <div class="project-description">
                 <h2>Project 1 Title</h2>
                 <p>This is the description of project 1. You can provide details about the project here.
@@ -45,6 +47,40 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+    <script defer>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('model-viewer') });
+        renderer.setSize(600, 600);
+
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            '2024-2-8 Objektit sivulle3.gltf', function (gltf) {
+            scene.add(gltf.scene);
+            
+            // Adjust the camera position to view the model properly
+            camera.position.set(5, 2, 10);
+            camera.lookAt(model.position);
+        });
+
+        // Add directional light to the scene
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+        directionalLight.position.set(0, 1, 1);
+        scene.add(directionalLight);
+
+        // Add ambient light to the scene
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+        scene.add(ambientLight);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        
+
+        animate();
+    </script>
 </body>
 </html>
